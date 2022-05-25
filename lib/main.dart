@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:quran_app/config/routes.dart';
+import 'package:quran_app/cubit/cubits.dart';
 import 'package:quran_app/cubit/home/home_cubit.dart';
 import 'package:quran_app/repositories/surah_repository.dart';
 
@@ -20,6 +21,10 @@ class MyApp extends StatelessWidget {
           BlocProvider(
             create: (context) =>
                 HomeCubit(surahRepository: context.read<SurahRepository>()),
+          ),
+          BlocProvider(
+            create: (context) => DetailSurahCubit(
+                surahRepository: context.read<SurahRepository>()),
           ),
         ],
         child: MaterialApp(

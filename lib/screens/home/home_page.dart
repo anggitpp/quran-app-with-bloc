@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:quran_app/config/route_name.dart';
 
 import '../../cubit/cubits.dart';
 import '../../models/surah.dart';
@@ -34,18 +35,23 @@ class _HomePageState extends State<HomePage> {
                 ? ListView.builder(
                     itemCount: state.surah.length,
                     itemBuilder: (context, index) {
-                      Surah data = state.surah[index];
+                      Surah surah = state.surah[index];
                       return ListTile(
-                        onTap: () {},
+                        onTap: () => Navigator.pushNamed(
+                            context, RouteName.detailSurah,
+                            arguments: surah),
                         leading: CircleAvatar(
-                          child: Text('${data.number}'),
+                          child: Text('${surah.number}'),
                         ),
                         title: Text(
-                          '${data.name!.transliteration!.id!} (${data.name!.translation!.id!})',
+                          '${surah.name!.transliteration!.id!} (${surah.name!.translation!.id!})',
                         ),
                         subtitle: Text(
-                            '${data.numberOfVerses} ayat | ${data.revelation?.id}'),
-                        trailing: Text(data.name!.short!),
+                          '${surah.numberOfVerses} ayat | ${surah.revelation?.id}',
+                        ),
+                        trailing: Text(
+                          surah.name!.short!,
+                        ),
                       );
                     },
                   )
