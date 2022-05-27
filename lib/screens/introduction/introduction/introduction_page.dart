@@ -48,7 +48,7 @@ class IntroductionPage extends StatelessWidget {
             ),
             ElevatedButton(
               onPressed: () => Navigator.pushNamed(context, RouteName.home),
-              child: Text('Mulai'),
+              child: Text('Get Started'),
             ),
           ],
         ),
