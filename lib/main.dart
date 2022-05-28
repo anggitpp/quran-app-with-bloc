@@ -4,6 +4,7 @@ import 'package:quran_app/config/routes.dart';
 import 'package:quran_app/cubit/cubits.dart';
 import 'package:quran_app/cubit/home/home_cubit.dart';
 import 'package:quran_app/repositories/surah_repository.dart';
+import 'package:quran_app/config/theme.dart';
 
 void main() {
   runApp(const MyApp());
@@ -29,9 +30,7 @@ class MyApp extends StatelessWidget {
         ],
         child: MaterialApp(
           title: 'Flutter Demo',
-          theme: ThemeData(
-            primarySwatch: Colors.blue,
-          ),
+          theme: lightTheme,
           routes: routes,
         ),
       ),
