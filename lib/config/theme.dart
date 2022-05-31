@@ -11,10 +11,15 @@ class AppColors {
 }
 
 ThemeData lightTheme = ThemeData(
+  brightness: Brightness.light,
   primaryColor: AppColors.purpleColor,
   scaffoldBackgroundColor: AppColors.whiteColor,
   appBarTheme: AppBarTheme(
+    elevation: 4,
     backgroundColor: AppColors.purpleColor,
+  ),
+  tabBarTheme: TabBarTheme(
+    labelColor: Colors.black,
   ),
   textTheme: TextTheme(
     bodyText1: TextStyle(color: AppColors.darkPurpleColor),
@@ -23,9 +28,14 @@ ThemeData lightTheme = ThemeData(
 );
 
 ThemeData darkTheme = ThemeData(
+  brightness: Brightness.dark,
   primaryColor: AppColors.darkPurpleColor,
   scaffoldBackgroundColor: AppColors.darkPurpleColor,
+  tabBarTheme: TabBarTheme(
+    labelColor: AppColors.whiteColor,
+  ),
   appBarTheme: AppBarTheme(
+    elevation: 0,
     backgroundColor: AppColors.darkPurpleColor,
   ),
   textTheme: TextTheme(

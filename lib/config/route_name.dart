@@ -5,4 +5,5 @@ class RouteName {
   static const home = '/';
   static const homeSearch = 'home_search';
   static const detailSurah = '/detail_surah';
+  static const lastRead = '/last_read';
 }
