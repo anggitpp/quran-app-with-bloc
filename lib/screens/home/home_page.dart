@@ -39,6 +39,12 @@ class _HomePageState extends State<HomePage> {
           )
         ],
       ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () => context.read<ThemeCubit>().changeTheme(),
+        child: Icon(
+          Icons.color_lens,
+        ),
+      ),
       body: DefaultTabController(
         length: 3,
         child: SafeArea(

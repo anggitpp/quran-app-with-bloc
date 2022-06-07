@@ -14,16 +14,19 @@ ThemeData lightTheme = ThemeData(
   brightness: Brightness.light,
   primaryColor: AppColors.purpleColor,
   scaffoldBackgroundColor: AppColors.whiteColor,
-  appBarTheme: AppBarTheme(
+  appBarTheme: const AppBarTheme(
     elevation: 4,
     backgroundColor: AppColors.purpleColor,
   ),
-  tabBarTheme: TabBarTheme(
+  tabBarTheme: const TabBarTheme(
     labelColor: Colors.black,
   ),
-  textTheme: TextTheme(
+  textTheme: const TextTheme(
     bodyText1: TextStyle(color: AppColors.darkPurpleColor),
     bodyText2: TextStyle(color: AppColors.darkPurpleColor),
+  ),
+  floatingActionButtonTheme: FloatingActionButtonThemeData(
+    backgroundColor: AppColors.purpleColor,
   ),
 );
 
@@ -31,15 +34,18 @@ ThemeData darkTheme = ThemeData(
   brightness: Brightness.dark,
   primaryColor: AppColors.darkPurpleColor,
   scaffoldBackgroundColor: AppColors.darkPurpleColor,
-  tabBarTheme: TabBarTheme(
+  tabBarTheme: const TabBarTheme(
     labelColor: AppColors.whiteColor,
   ),
-  appBarTheme: AppBarTheme(
+  appBarTheme: const AppBarTheme(
     elevation: 0,
     backgroundColor: AppColors.darkPurpleColor,
   ),
-  textTheme: TextTheme(
+  textTheme: const TextTheme(
     bodyText1: TextStyle(color: AppColors.whiteColor),
     bodyText2: TextStyle(color: AppColors.whiteColor),
+  ),
+  floatingActionButtonTheme: FloatingActionButtonThemeData(
+    backgroundColor: AppColors.whiteColor,
   ),
 );

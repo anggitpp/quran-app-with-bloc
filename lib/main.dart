@@ -20,6 +20,9 @@ class MyApp extends StatelessWidget {
       child: MultiBlocProvider(
         providers: [
           BlocProvider(
+            create: (context) => ThemeCubit(),
+          ),
+          BlocProvider(
             create: (context) =>
                 HomeCubit(surahRepository: context.read<SurahRepository>()),
           ),
@@ -28,10 +31,16 @@ class MyApp extends StatelessWidget {
                 surahRepository: context.read<SurahRepository>()),
           ),
         ],
-        child: MaterialApp(
-          title: 'Flutter Demo',
-          theme: darkTheme,
-          routes: routes,
+        child: BlocBuilder<ThemeCubit, ThemeState>(
+          builder: (context, state) {
+            return MaterialApp(
+              title: 'Flutter Demo',
+              theme: state.themeStatus == ThemeStatus.light
+                  ? lightTheme
+                  : darkTheme,
+              routes: routes,
+            );
+          },
         ),
       ),
     );
