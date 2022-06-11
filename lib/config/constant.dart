@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-const apiURL = "https://api.quran.sutanlab.id";
+const apiURL = "https://api-quran-app.herokuapp.com";
 
 class AppSizes {
   static const double defaultMargin = 20.0;

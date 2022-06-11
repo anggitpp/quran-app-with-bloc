@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../config/theme.dart';
 import '../../cubit/cubits.dart';
 import '../../models/detail_surah.dart';
 import '../../models/surah.dart';
+import '../../widgets/widgets.dart';
 
 class DetailSurahPage extends StatefulWidget {
   final Surah surah;
@@ -39,31 +41,47 @@ class _DetailSurahPageState extends State<DetailSurahPage> {
               ? ListView(
                   padding: const EdgeInsets.all(20),
                   children: [
-                    Card(
-                      child: Padding(
-                        padding: const EdgeInsets.all(20.0),
-                        child: Column(
-                          children: [
-                            Text(
-                              '${surah.name?.transliteration?.id?.toUpperCase()}',
-                              style: const TextStyle(
-                                fontSize: 20,
-                                fontWeight: FontWeight.bold,
+                    GestureDetector(
+                      onTap: () => showGlobalDialog(
+                          context, 'Tafsir', '${surah.tafsir!.id}'),
+                      child: Container(
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(20),
+                          gradient: LinearGradient(
+                            colors: [
+                              AppColors.lightPurpleColor,
+                              AppColors.darkPurpleColor,
+                            ],
+                          ),
+                        ),
+                        child: Padding(
+                          padding: const EdgeInsets.all(20.0),
+                          child: Column(
+                            children: [
+                              Text(
+                                '${surah.name?.transliteration?.id?.toUpperCase()}',
+                                style: const TextStyle(
+                                  fontSize: 20,
+                                  color: AppColors.whiteColor,
+                                  fontWeight: FontWeight.bold,
+                                ),
                               ),
-                            ),
-                            Text(
-                              '( ${surah.name?.translation?.id?.toUpperCase()} )',
-                              style: const TextStyle(
-                                fontSize: 18,
+                              Text(
+                                '( ${surah.name?.translation?.id?.toUpperCase()} )',
+                                style: const TextStyle(
+                                  fontSize: 18,
+                                  color: AppColors.whiteColor,
+                                ),
                               ),
-                            ),
-                            Text(
-                              '${surah.numberOfVerses} Ayat | ${surah.revelation?.id}',
-                              style: const TextStyle(
-                                fontSize: 16,
+                              Text(
+                                '${surah.numberOfVerses} Ayat | ${surah.revelation?.id}',
+                                style: const TextStyle(
+                                  fontSize: 16,
+                                  color: AppColors.whiteColor,
+                                ),
                               ),
-                            ),
-                          ],
+                            ],
+                          ),
                         ),
                       ),
                     ),
@@ -80,6 +98,11 @@ class _DetailSurahPageState extends State<DetailSurahPage> {
                           crossAxisAlignment: CrossAxisAlignment.end,
                           children: [
                             Card(
+                              elevation: 0,
+                              color: Colors.purple[50],
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(10),
+                              ),
                               child: Padding(
                                 padding: const EdgeInsets.symmetric(
                                     horizontal: 10, vertical: 5),
@@ -87,8 +110,21 @@ class _DetailSurahPageState extends State<DetailSurahPage> {
                                   mainAxisAlignment:
                                       MainAxisAlignment.spaceBetween,
                                   children: [
-                                    CircleAvatar(
-                                      child: Text('${verse.number?.inSurah}'),
+                                    Container(
+                                      height: 35,
+                                      width: 35,
+                                      decoration: BoxDecoration(
+                                        image: DecorationImage(
+                                          image: AssetImage(
+                                              'assets/images/octagon.png'),
+                                        ),
+                                      ),
+                                      alignment: Alignment.center,
+                                      child: Text(
+                                        '${verse.number?.inSurah}',
+                                        style: TextStyle(
+                                            color: AppColors.purpleColor),
+                                      ),
                                     ),
                                     Row(
                                       children: [
